@@ -1,6 +1,6 @@
 public class WordCount {
 
-    public void countWords(String text){
-
-    }
+  public int countWords(String text) {
+    return text.split(" ").length;
+  }
 }
