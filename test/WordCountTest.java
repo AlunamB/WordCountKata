@@ -37,17 +37,17 @@ public class WordCountTest {
   }
 
   @Test
-  public void averageLengthOneWord() {
+  public void averageLengthOneWordTest() {
     Assert.assertEquals(4, new WordCount("ball").getAverageWordLength(), 0.01);
   }
 
   @Test
-  public void averageLengthWithDigits() {
+  public void averageLengthWithDigitsTest() {
     Assert.assertEquals(3.5, new WordCount("ball out").getAverageWordLength(), 0.01);
   }
 
   @Test
-  public void averageLengthEmptyWord() {
+  public void averageLengthEmptyWordTest() {
     Assert.assertEquals(0d, new WordCount(" ").getAverageWordLength(), 0.01);
   }
 
