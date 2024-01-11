@@ -1,14 +1,10 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class WordCount {
 
   private final String[] stopWords = {"the", "a", "on", "off"};
 
-  public List<Long> countWords(String text) {
-    List<Long> result = new ArrayList<>();
-
+  public WordCountingResult countWords(String text) {
     String[] words = text.split("[^A-Za-z]");
     String[] cleanedText =
         Arrays.stream(words)
@@ -16,8 +12,7 @@ public class WordCount {
             .filter(x -> !x.isBlank())
             .toArray(String[]::new);
 
-    System.out.println(cleanedText.toString());
-    result.add(Long.valueOf(cleanedText.length));
+    WordCountingResult result = new WordCountingResult(cleanedText.length, 0);
     return result;
   }
 }
