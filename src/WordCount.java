@@ -20,7 +20,7 @@ public class WordCount {
   }
 
   private String[] getWords(String text) {
-    return text.split("[^A-Za-z]");
+    return text.split("[^A-Za-z\\-]");
   }
 
   private int getNumberOfUniqueWords(String[] cleanedText) {

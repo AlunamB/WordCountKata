@@ -21,7 +21,7 @@ public class WordCountTest {
   @Test
   public void HumptyNumberTest() {
     Assert.assertEquals(
-        9,
+        7,
         new WordCount()
             .countWords("Humpty-Dumpty sat on a wall. Humpty-Dumpty had a great fall.")
             .getCountedWords());
@@ -30,7 +30,7 @@ public class WordCountTest {
   @Test
   public void HumptyUniqueTest() {
     Assert.assertEquals(
-        7,
+        6,
         new WordCount()
             .countWords("Humpty-Dumpty sat on a wall. Humpty-Dumpty had a great fall.")
             .getUniqueWords());
