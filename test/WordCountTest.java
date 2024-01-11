@@ -27,12 +27,12 @@ public class WordCountTest {
             .getCountedWords());
   }
 
-  /* @Test
+  @Test
   public void HumptyUniqueTest() {
     Assert.assertEquals(
         7,
-        new WordCount().countWords("Humpty-Dumpty sat on a wall. Humpty-Dumpty had a great fall."));
+        new WordCount()
+            .countWords("Humpty-Dumpty sat on a wall. Humpty-Dumpty had a great fall.")
+            .getUniqueWords());
   }
-  */
-
 }
