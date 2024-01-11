@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class WordCount {
 
@@ -41,5 +42,10 @@ public class WordCount {
       sumOfLetters = sumOfLetters + entry.length();
     }
     return sumOfLetters / words.length;
+  }
+
+  public List<String> getIndexList() {
+    String[] words = getCleanedListOfWords();
+    return Arrays.stream(words).sorted((o1, o2) -> o1.compareToIgnoreCase(o2)).toList();
   }
 }

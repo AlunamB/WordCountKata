@@ -50,4 +50,13 @@ public class WordCountTest {
   public void averageLengthEmptyWord() {
     Assert.assertEquals(0d, new WordCount(" ").getAverageWordLength(), 0.01);
   }
+
+  @Test
+  public void getIndexSimpleTest() {
+    String[] expectedIndexWords = {"had", "lamb", "little", "Mary"};
+    // List<String> fruitList = Arrays.asList(fruits);
+
+    Assert.assertEquals(
+        expectedIndexWords, new WordCount("Mary had a little lamb").getIndexList().toArray());
+  }
 }
