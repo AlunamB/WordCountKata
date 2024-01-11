@@ -19,7 +19,7 @@ public class WordCountTest {
   }
 
   @Test
-  public void HumptyNumberTest() {
+  public void humptyNumberTest() {
     Assert.assertEquals(
         7,
         new WordCount()
@@ -28,11 +28,26 @@ public class WordCountTest {
   }
 
   @Test
-  public void HumptyUniqueTest() {
+  public void humptyUniqueTest() {
     Assert.assertEquals(
         6,
         new WordCount()
             .countWords("Humpty-Dumpty sat on a wall. Humpty-Dumpty had a great fall.")
             .getUniqueWords());
+  }
+
+  @Test
+  public void averageLengthOneWord() {
+    Assert.assertEquals(4, new WordCount().getAverageWordLength("ball"), 0.01);
+  }
+
+  @Test
+  public void averageLengthWithDigits() {
+    Assert.assertEquals(3.5, new WordCount().getAverageWordLength("ball out"), 0.01);
+  }
+
+  @Test
+  public void averageLengthEmptyWord() {
+    Assert.assertEquals(0d, new WordCount().getAverageWordLength(" "), 0.01);
   }
 }

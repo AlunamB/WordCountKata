@@ -26,4 +26,16 @@ public class WordCount {
   private int getNumberOfUniqueWords(String[] cleanedText) {
     return Arrays.stream(cleanedText).sorted().distinct().toArray().length;
   }
+
+  public double getAverageWordLength(String text) {
+    String[] words = getWords(text);
+    if (words.length == 0) {
+      return 0;
+    }
+    double sumOfLetters = 0d;
+    for (String entry : words) {
+      sumOfLetters = sumOfLetters + entry.length();
+    }
+    return sumOfLetters / words.length;
+  }
 }
