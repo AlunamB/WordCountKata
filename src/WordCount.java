@@ -1,31 +1,18 @@
 import java.util.Arrays;
-import java.util.List;
 
 public class WordCount {
 
-  private final String[] stopWords = {"the", "a", "on", "off"};
-  private final String initialText;
+  private WordStorage wordStorage;
 
   public WordCount(String text) {
-    initialText = text;
+    wordStorage = new WordStorage(text);
   }
 
   public WordCountingResult countWords() {
-    String[] cleanedListOfWords = getCleanedListOfWords();
+    String[] cleanedListOfWords = wordStorage.getCleanedListOfWords();
     int nrOfUniqueWords = getNumberOfUniqueWords(cleanedListOfWords);
 
     return new WordCountingResult(cleanedListOfWords.length, nrOfUniqueWords);
-  }
-
-  private String[] getCleanedListOfWords() {
-    return Arrays.stream(getWords())
-        .filter(x -> !Arrays.asList(stopWords).contains(x))
-        .filter(x -> !x.isBlank())
-        .toArray(String[]::new);
-  }
-
-  private String[] getWords() {
-    return initialText.split("[^A-Za-z\\-]");
   }
 
   private int getNumberOfUniqueWords(String[] cleanedText) {
@@ -33,7 +20,7 @@ public class WordCount {
   }
 
   public double getAverageWordLength() {
-    String[] words = getWords();
+    String[] words = wordStorage.getWords();
     if (words.length == 0) {
       return 0;
     }
@@ -42,10 +29,5 @@ public class WordCount {
       sumOfLetters = sumOfLetters + entry.length();
     }
     return sumOfLetters / words.length;
-  }
-
-  public List<String> getIndexList() {
-    String[] words = getCleanedListOfWords();
-    return Arrays.stream(words).sorted((o1, o2) -> o1.compareToIgnoreCase(o2)).toList();
   }
 }
